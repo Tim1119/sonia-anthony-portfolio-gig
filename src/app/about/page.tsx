@@ -18,7 +18,18 @@ const AboutPage = () => {
     try {
       const aboutSoniaData = await client.fetch('*[_type == "about"]');
       console.log('about---------->', aboutSoniaData);
-      setAboutSoniaDetail( aboutSoniaData); // Update state with fetched data
+      if (aboutSoniaData && aboutSoniaData.length > 0) {
+        setAboutSoniaDetail(aboutSoniaData);
+      } else {
+        // Handle empty response gracefully (e.g., display a message)
+        toast.error("An error occurred while fetching about data. Please try again later.", {
+          position: "top-right",
+          autoClose: 5000, // Close after 5 second
+        });
+        console.warn("No about data found");
+        setIsLoading(false);
+      }
+     
     } catch (error) {
       console.error('Error fetching about Sonia:', error);
       // Handle errors gracefully, e.g., display an error message to the user
@@ -54,29 +65,41 @@ const AboutPage = () => {
             <p className='text-[15px] lg:text-base font-normal text-justify lg:leading-8 leading-8' data-aos="fade-up" data-aos-delay="400" >
             {/* {aboutSoniaDetail?.about} */}
             <article>
+              {/* {
+                aboutSoniaDetail && aboutSoniaDetail.length > 0 && (
 
-            <PortableText
-            className="text-justify"
-            content={aboutSoniaDetail[0]?.about}
-            dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-            projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-            serializers={{
-              h1: (props: any) => (
-                <h1 className="my-5 text-2xl font-bold" {...props}></h1>
-              ),
-              h2: (props: any) => (
-                <h1 className="my-5 text-xl font-bold" {...props}></h1>
-              ),
-              li: ({ children }: any) => (
-                <li className="ml-4 list-disc">{children}</li>
-              ),
-              link: ({ children, href }: any) => (
-                <a href={href} className="text-blue-500 hover:underline">
-                  {children}
-                </a>
-              ),
-            }}
-          />
+                  <PortableText
+                  className="text-justify"
+                  content={aboutSoniaDetail?.[0]?.about}
+                  dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+                  projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+                  serializers={{
+                    h1: (props: any) => (
+                      <h1 className="my-5 text-2xl font-bold" {...props}></h1>
+                    ),
+                    h2: (props: any) => (
+                      <h1 className="my-5 text-xl font-bold" {...props}></h1>
+                    ),
+                    li: ({ children }: any) => (
+                      <li className="ml-4 list-disc">{children}</li>
+                    ),
+                    link: ({ children, href }: any) => (
+                      <a href={href} className="text-blue-500 hover:underline">
+                        {children}
+                      </a>
+                    ),
+                  }}
+                />
+                )
+              } */}
+
+          {`Hi, I'm Sonia, your Executive Zen Assistant. I specialize in streamlining your workload and
+            coordinating executive schedules, making your life easier. Whether it's managing administrative
+            tasks, organizing your lifestyle, or fostering creativity, I'm here to ensure every aspect of your
+            schedule comes alive through impeccable organization.
+            I offer a comprehensive range of services tailored to your needs.
+            Let's work together to achieve your goals, while reclaiming your time and embracing a
+            well-balanced life.`}
             </article>
 
             </p>

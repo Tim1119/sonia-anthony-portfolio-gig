@@ -57,34 +57,31 @@ const Navbar = () => {
             </div>
         </nav>
 
-        {/* mobile screen */}
-        {/* black overlay */}
         <div className={showSidebar ? "fixed left-0 top-0 w-full h-screen bg-black/70" : "hidden"} onClick={closeSidebar}></div>
-        <nav className={showSidebar? "md:hidden border-right fixed left-0 top-0 w-[85%] sm:w-[60%] md:w-[45%] h-screen bg-black p-10 ease-in duration-500": "hidden"}
-      >
-          {/* <nav className="flex items-center justify-between h-full container max-w-7xl mx-auto" > */}
-          {/* Logo */}
-            <div  className="flex items-center justify-between" >
-              {/* <img src={navbarLogo} className="h-[50px] object-contain"  /> */}
-              <h3 className="text-white font-bold uppercase font-script text-3xl">
-                {/* <span className="text-green-600">Executive</span>{" "} */}
-                <span className="text-green-600">Executive</span>{" "}
-                <span className="text-white">Zen</span>
-              </h3>
-              <div onClick={closeSidebar} className="md:hidden">
-                 <AiOutlineClose className="text-white" size={25} /> 
-              </div>
-            </div>
-            <div className="py-4 flex flex-col">
-          <ul>
-          {navbarLinks.map((navLink:NavlinkDataType,index:number)=>(
-            <Link href={navLink.href} key={index}>
-              <li className={` text-base capitalize hover:text-lemon font-semibold ${pathname === navLink.href ? 'active-link' : ' text-white'} `}>{navLink.name}</li>
-            </Link>
-            ))}
-          </ul>
-          </div>
-          </nav>
+
+<nav className={`md:hidden border-right fixed left-0 top-0 w-[85%] sm:w-[60%] md:w-[45%] h-screen bg-black p-10 transition ease-in-out duration-500 transform ${showSidebar ? '-translate-x-0' : '-translate-x-full'}`}>
+  {/* Nav content */}
+  <div className="flex items-center justify-between">
+    {/* Logo */}
+    <h3 className="text-white font-bold uppercase font-script text-3xl">
+      <span className="text-green-600">Executive</span> <span className="text-white">Zen</span>
+    </h3>
+    <div onClick={closeSidebar} className="md:hidden">
+      <AiOutlineClose className="text-white" size={25} />
+    </div>
+  </div>
+  <div className="py-4 flex flex-col">
+    <ul>
+      {navbarLinks.map((navLink, index) => (
+        <Link href={navLink.href} key={index}>
+          <li className={` text-base capitalize hover:text-lemon font-semibold ${pathname === navLink.href ? 'active-link' : ' text-white'} `}>{navLink.name}</li>
+        </Link>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+         
         
         {/* </nav> */}
       </header>
