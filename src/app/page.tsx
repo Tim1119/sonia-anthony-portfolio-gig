@@ -5,6 +5,7 @@ import Services from './components/services/Services'
 import Portfolio from './components/portfolio/Portfolio'
 import Testimonial from './components/testimonial/Testimonial'
 import Contact from './components/contact/Contact'
+import client from '../../client'
 
 export default function Home() {
   return (
@@ -18,3 +19,4 @@ export default function Home() {
     </main>
   );
 }
+

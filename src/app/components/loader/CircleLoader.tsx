@@ -1,5 +1,4 @@
 import React from 'react'
-// import { ColorRing } from 'react-loader-spinner'
 import ClipLoader from "react-spinners/ClipLoader";
 
 const CircleLoader = () => {

@@ -19,7 +19,7 @@ const Hero = () => {
             </div>
         </div>
         <div className='hidden lg:grid place-items-end h-full' data-aos="zoom-out" data-aos-delay="200" >
-            <Image src="/sonia/banner-image.png" width={510} height={500} className='object-contain lg:h-[90%] h-[60%] my-0 p-0' alt="Sonia-Hero-Image" />
+            <Image src="/sonia/banner-image.png" priority width={510} height={500} className='object-contain lg:h-[90%] h-[60%] my-0 p-0' alt="Sonia-Hero-Image" />
         </div>
         </div>
     </div>

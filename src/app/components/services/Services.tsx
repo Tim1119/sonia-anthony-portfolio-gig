@@ -4,12 +4,14 @@ import ServiceCard from "../cards/ServiceCards";
 import {useEffect,useState} from 'react'
 import client from '../../../../client'
 import CircleLoader from "../loader/CircleLoader";
+import Error from "../error/Error";
 import { toast } from 'react-toastify'
 
 const Services = () => {
 
   const [userServices, setUserServices] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const getServices = async () => {
     try {
@@ -19,10 +21,13 @@ const Services = () => {
      
     } catch (error) {
       console.error('Error fetching services:', error);
-    toast.error("An error occurred while fetching services. Please try again later.", {
-      position: "top-right",
-      autoClose: 5000, // Close after 5 second
-    });
+      setIsError(true)
+      if (isError){
+        toast.error("An error occurred while fetching services. Please try again later.", {
+          position: "top-right",
+          autoClose: 5000, // Close after 5 second
+        });
+      }
       // Handle errors gracefully, e.g., display an error message to the user
     } finally {
       setIsLoading(false); // Set loading to false after fetching (or error handling)
@@ -41,6 +46,9 @@ const Services = () => {
       <div className="containerize h-full flex flex-col justify-center ">
         <div data-aos="fade-up">
           <h3 className="section-header my-5 text-black">Services</h3>
+        </div>
+        <div>
+          {isError && <Error message="An error occured when fetching services" />}
         </div>
         {isLoading ? ( <CircleLoader />) :
       (

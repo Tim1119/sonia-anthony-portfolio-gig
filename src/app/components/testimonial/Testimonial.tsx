@@ -9,10 +9,13 @@ import { useEffect,useState } from 'react';
 import client from '../../../../client'
 import CircleLoader from '../loader/CircleLoader';
 import { toast } from 'react-toastify'
+import Error from "../error/Error";
 
 const Testimonials = () => {
     const [userTestimonials, setUserTestimonials] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+
     const settings = {
         dots: true,
         infinite: true,
@@ -45,6 +48,7 @@ const Testimonials = () => {
           setUserTestimonials(testimonialData); 
         } catch (error) {
           console.error('Error fetching testimonial:', error);
+          setIsError(true)
           toast.error("An error occurred while fetching portfolio. Please try again later.", {
             position: "top-right",
             autoClose: 5000, // Close after 5 second
@@ -67,6 +71,9 @@ const Testimonials = () => {
     <div className="w-full my-6 py-5 font-serif grid place-items-center">
     <div className="containerize overflow-x-hidden mx-auto ">
       <h3 className="section-header ">Testimonials</h3>
+      <div>
+          {isError && <Error message="An error occured when fetching testimonial" />}
+        </div>
       {isLoading ? ( <CircleLoader />) :
       (
 

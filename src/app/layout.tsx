@@ -1,4 +1,4 @@
-import Navbar from './components/navbar/Navbar';
+    import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children,}: Readonly<{children: React.ReactNode;
 }>) {
 
-  const notify = () => toast("Wow so easy!");
+
   
   return (
     <html lang="en">
       {/* <body className={inter.className}> */}
       <body >
         <Navbar />
-        <div className='mt-20' >
+        <div className='mt-[70px]' >
           {children}
         </div>
 

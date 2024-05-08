@@ -10,16 +10,14 @@ import { useEffect,useState } from 'react';
 import client from '../../../../client'
 import CircleLoader from "../loader/CircleLoader";
 import { toast } from 'react-toastify'
-
-
-
-
+import Error from "../error/Error";
 
 
 const Portfolio = () => {
 
   const [userPortfolios, setUserPortfolios] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const settings = {
     dots: true,
@@ -49,10 +47,10 @@ const Portfolio = () => {
   const getPortfolio = async () => {
     try {
       const portfolioData = await client.fetch('*[_type == "portfolio"]');
-      console.log('portfolio---------->', portfolioData);
       setUserPortfolios(portfolioData); 
     } catch (error) {
       console.error('Error fetching portfolio:', error);
+      setIsError(true)
       toast.error("An error occurred while fetching portfolio. Please try again later.", {
         position: "top-right",
         autoClose: 5000, // Close after 5 second
@@ -74,6 +72,9 @@ const Portfolio = () => {
     <div className="w-full my-6 py-5  font-serif grid place-items-center " >
     <div className='containerize  overflow-x-hidden mx-auto' >
         <h3 className='section-header' >Portfolio</h3>
+        <div>
+          {isError && <Error message="An error occured when fetching portfolio" />}
+        </div>
         {isLoading ? ( <CircleLoader />) :
       (
         <Slider {...settings}  className="grid place-items-center l py-3 mt-4 mb-10">   

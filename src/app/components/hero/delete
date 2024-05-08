@@ -1,0 +1,26 @@
+<div className="w-full min-h-screen bg-black font-serif grid place-items-center">
+    <div className="containerize grid grid-cols-1 lg:grid-cols-2 gap-4 h-full">
+      <div className="grid place-items-center md:justify-items-start">
+        <div className="gap-5 lg:text-left text-center h-full xl:h-fit flex flex-col justify-center w-full">
+          <h1 data-aos="fade-up" className="text-4xl xl:text-5xl uppercase font-bold text-white leading-[56px]">
+            Elevate your business <br /> with Executive Zen
+          </h1>
+          <p className="text-lg xl:text-xl text-white font-semibold" data-aos="fade-up" data-aos-delay="400">
+            Your virtual assistant offering seamless support for achieving executive success
+          </p>
+          <Button dataAos="fade-up" dataAosDelay="600" buttonClassName="flex w-fit lg:mx-0 mx-auto items-center spacing-3 gap-3 btn px-6 py-2 rounded-md my-3 text-white bg-lemon hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700" />
+        </div>
+      </div>
+      <div className="lg:grid place-items-end h-full hidden lg:block" data-aos="zoom-out" data-aos-delay="200">
+        <Image
+          src="/sonia/banner-image.png"
+          alt="Sonia-Hero-Image"
+          // Responsive width and height using layout prop
+          layout="responsive"
+          width={640} // Adjust as needed for larger screens
+          height={480} // Adjust as needed for larger screens
+          className="object-contain" // Maintain aspect ratio
+        />
+      </div>
+    </div>
+  </div>
