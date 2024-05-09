@@ -25,13 +25,10 @@ export default function RootLayout({ children,}: Readonly<{children: React.React
     <html lang="en">
       {/* <body className={inter.className}> */}
       <body >
-        <Navbar />
-        <div className='mt-[70px]' >
+       
+        <div >
           {children}
         </div>
-
-        <Footer />
-       
         <ToastContainer />
         </body>
     </html>

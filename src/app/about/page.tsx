@@ -8,6 +8,8 @@ import client from '../../../client'
 import CircleLoader from '../components/loader/CircleLoader'
 import { toast } from 'react-toastify';
 import PortableText from "react-portable-text";
+import Navbar from '../components/navbar/Navbar'
+import Footer from '../components/footer/Footer'
 
 const AboutPage = () => {
   const notify = () => toast("Wow so easy !");
@@ -48,6 +50,9 @@ const AboutPage = () => {
   },[])
 
   return (
+    <> 
+    <Navbar />
+    
     <div className="font-serif pt-5 grid place-items-center w-full bg-white " >
       
     {isLoading ? ( <CircleLoader />) :
@@ -118,6 +123,8 @@ const AboutPage = () => {
       )}
 
 </div>
+  <Footer />
+    </>
   )
 }
 
