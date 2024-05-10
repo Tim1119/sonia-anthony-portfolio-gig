@@ -12,16 +12,18 @@ import Footer from './components/footer/Footer'
 export default function Home() {
   return (
     <main className="">
-      <Navbar />
-      <div className='mt-[70px]'  >
+        <Navbar />
+        <div className="mt-[70px]" >
+         
       <Hero />
       <About />
       <Services />
       <Portfolio />
       <Testimonial />
-      <Contact/>
-      </div>
-      <Footer />
+      <Contact/>  
+        </div>
+       
+      <Footer />  
     </main>
   );
 }

@@ -1,17 +1,17 @@
 import { Rule } from "@sanity/types";
 import { defineField, defineType } from "sanity";
-import { CiUser } from "react-icons/ci";
+import { PiNotebookLight } from "react-icons/pi";
 
 
 export default defineType({
-	name: "about",
-	title: "About",
-	icon: CiUser,
+	name: "aboutDetails",
+	title: "AboutDetails",
+	icon: PiNotebookLight,
 	type: "document",
 	fields: [
 		defineField({
-			name: "about",
-			title: "Quick Information About Sonia Anthony.. It will appear in the about section of the website homepage",
+			name: "aboutDetails",
+			title: "About Sonia Anthony in details. This will appear in the about page of the website",
 			type: "blockContent",
       validation: (Rule) => Rule.required()
 		}),
@@ -19,7 +19,7 @@ export default defineType({
 
 	preview: {
 		select: {
-			title: "about",
+			title: "aboutDetail",
 		},
 		
 	},

@@ -1,9 +1,11 @@
 import { Rule } from "@sanity/types";
 import { defineField, defineType } from "sanity";
+import { CiMicrophoneOn } from "react-icons/ci";
 
 export default defineType({
 	name: "testimonial",
 	title: "Testimonial",
+	icon:CiMicrophoneOn,
 	type: "document",
 	fields: [
 		defineField({

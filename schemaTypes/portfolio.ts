@@ -1,9 +1,11 @@
 import { Rule } from "@sanity/types";
 import { defineField, defineType } from "sanity";
+import { FaBriefcase } from "react-icons/fa";
 
 export default defineType({
 	name: "portfolio",
 	title: "Portfolio",
+	icon: FaBriefcase,
 	type: "document",
 	fields: [
 		defineField({
