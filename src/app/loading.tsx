@@ -6,7 +6,7 @@ export default function Loading() {
     
 
     return (
-      <div className="h-screen grid place-items-center" >
+      <div className="h-screen w-full grid place-items-center" >
        <RingLoader color="#36d7b7" />
       </div>
     )

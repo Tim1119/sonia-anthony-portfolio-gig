@@ -13,9 +13,6 @@ export async function getAbout() {
 }
 export async function getAboutDetails() {
   return client.fetch(
-    groq`*[_type == "aboutDetails"]{
-      _id,
-      aboutDetails,
-    }`
+    groq`*[_type == "aboutDetails"]`
   );
 }

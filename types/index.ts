@@ -5,7 +5,7 @@ export type AboutType = {
 
 export type AboutDetailsType = {
     _id: string,
-    aboutDetails: PortableTextChild[],
+    aboutDetail: PortableTextChild[],
   };
 
   type PortableTextChild =

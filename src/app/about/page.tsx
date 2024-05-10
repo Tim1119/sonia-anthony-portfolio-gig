@@ -30,7 +30,7 @@ export default async function AboutPage() {
 
                   <PortableText
                   className="text-justify"
-                  content={about[0]?.aboutDetails}
+                  content={about[0]?.aboutDetail}
                   dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
                   projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
                   serializers={{

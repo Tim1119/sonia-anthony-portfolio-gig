@@ -19,7 +19,7 @@ export default defineType({
 
 	preview: {
 		select: {
-			title: "aboutDetail",
+			title: "aboutDetails",
 		},
 		
 	},
