@@ -10,8 +10,7 @@ import {getAboutDetails} from '../../../sanity/sanity.query'
 
 export default async function AboutPage() {
   const about: AboutDetailsType[] = await getAboutDetails();
-  console.log('AboutDetails',about)
- 
+   
   return (
     
     <div className="font-serif min-h-fit pt-5 pb-5 grid place-items-center w-full bg-white " >
