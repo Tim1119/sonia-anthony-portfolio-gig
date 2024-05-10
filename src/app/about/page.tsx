@@ -26,6 +26,8 @@ export default async function AboutPage() {
             </div>
             
             <div className='text-[15px] lg:text-base font-normal text-justify lg:leading-8 leading-8' data-aos="fade-up" data-aos-delay="400" >
+            {about &&
+            (
 
                   <PortableText
                   className="text-justify"
@@ -49,6 +51,7 @@ export default async function AboutPage() {
                     ),
                   }}
                 />
+            )}
             </div>
             <Link href='/' >
             <Button   buttonClassName={"mt-5 mx-auto lg:mx-0 flex text-sm lg:text-base items-center spacing-3 gap-3 btn px-4 py-2 rounded-md my-5 text-white bg-lemon hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700"} />
